@@ -25,3 +25,18 @@
   | -40 41 -42 -41 42 40 |       |
   +----------------------+-------+
 '''
+N = int(input())
+arr = input().split()
+arr = list(map((lambda x: int(x)), arr))
+ans = []
+for i in range(len(arr)):
+   if arr[i] < 0:
+      for b in range (i, len(arr)):
+          if arr[i] == (-1)*arr[b]:
+             ans.append(b - i)
+             break
+if (not arr):
+   print (0)
+else:
+   print (min (ans))
+
