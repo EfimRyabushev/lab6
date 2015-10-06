@@ -41,3 +41,4 @@ if (not arr):
     outputting.write(0)
 else:
    outputting.write(min (ans))
+outputting.close()

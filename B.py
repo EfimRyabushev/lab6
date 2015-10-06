@@ -71,4 +71,4 @@ if demanded < 0:
    demanded = 0
 
 outputting.write(demanded)
-
+outputting.close()

@@ -26,3 +26,4 @@ for i in range(N):
     as = a
   arr.append(a)
 outputting.write(as)
+outputting.close()
