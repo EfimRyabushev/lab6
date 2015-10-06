@@ -50,8 +50,8 @@ def removelid(elem, arr):
   
 inputting = open('input.txt', 'r')
 outputing = open('output.txt', 'w')
-N = int(inputting.rstrip())
-arr = inputting.rstrip()
+N = int(inputting.readline().rstrip())
+arr = inputting.readline().rstrip()
 arr = arr.split()
 arr = list(map((lambda x: int(x)), arr))
 arr.reverse()

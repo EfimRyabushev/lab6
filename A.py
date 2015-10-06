@@ -18,10 +18,10 @@
 '''
 inputting = open('input.txt', 'r')
 outputing = open('output.txt', 'w')
-N = int(inputting.rstrip())
+N = int(inputting.readline().rstrip())
 as = 0
 for i in range(N):
-  a = int(inputting.rstrip())
+  a = int(inputting.readline().rstrip())
   if arr.count(a) != 0:
     as = a
   arr.append(a)
