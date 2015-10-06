@@ -16,12 +16,13 @@
 | 8 3 5 4 5 1 |       |
 +-------------+-------+
 '''
-N = int(input())
-arr = []
+inputting = open('input.txt', 'r')
+outputing = open('output.txt', 'w')
+N = int(inputting.rstrip())
 as = 0
 for i in range(N):
-  a = int(input())
+  a = int(inputting.rstrip())
   if arr.count(a) != 0:
     as = a
   arr.append(a)
-print (as)
+outputting.write(as)

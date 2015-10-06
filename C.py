@@ -25,8 +25,10 @@
   | -40 41 -42 -41 42 40 |       |
   +----------------------+-------+
 '''
-N = int(input())
-arr = input().split()
+inputting = open('input.txt', 'r')
+outputing = open('output.txt', 'w')
+N = int(inputting.rstrip())
+arr = inputting.rstrip()
 arr = list(map((lambda x: int(x)), arr))
 ans = []
 for i in range(len(arr)):
@@ -36,6 +38,6 @@ for i in range(len(arr)):
              ans.append(b - i)
              break
 if (not arr):
-   print (0)
+    outputting.write(0)
 else:
-   print (min (ans))
+   outputting.write(min (ans))

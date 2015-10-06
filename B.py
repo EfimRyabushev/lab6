@@ -48,9 +48,11 @@ def removelid(elem, arr):
   else:
      return arr
   
-
-N = int(input())
-arr = input().split()
+inputting = open('input.txt', 'r')
+outputing = open('output.txt', 'w')
+N = int(inputting.rstrip())
+arr = inputting.rstrip()
+arr = arr.split()
 arr = list(map((lambda x: int(x)), arr))
 arr.reverse()
 arr = removelid(5, arr)
@@ -68,4 +70,5 @@ for i in arr:
 if demanded < 0:
    demanded = 0
 
-print (demanded)
+outputting.write(demanded)
+
