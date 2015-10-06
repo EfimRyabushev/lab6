@@ -42,3 +42,30 @@
 | 50 5 5 5 |       |
 +----------+-------+
 '''
+def removelid(elem, arr):
+  if arr[0] == elem:
+     return removelid(elem, arr[1:])
+  else:
+     return arr
+  
+
+N = int(input())
+arr = input().split()
+arr = list(map((lambda x: int(x)), arr))
+arr.reverse()
+arr = removelid(5, arr)
+demanded = 0
+for i in arr:
+  if i == 5:
+     demanded -= 1
+  elif i == 10:
+     demanded += 1
+  elif i == 50:
+     demanded += 9
+  elif i == 100:
+     demanded += 19
+
+if demanded < 0:
+   demanded = 0
+
+print (demanded)
