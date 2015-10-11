@@ -25,3 +25,20 @@
 | 6 4 6 3 |           |
 +---------+-----------+
 '''
+def trans(a):
+    answer = [[a[i][j] for j in range(len(a))] for i in range(len(a[0]))]
+    return answer
+def convert(a):
+    sub = a.split()
+    semi = list(map((lambda x: int(x)), sub))
+    return semi
+
+inputting = open('input.txt', 'r')
+outputing = open('output.txt', 'w')
+array = convert(inputing.readline())
+a, b = array[0], array[1]
+array = [convert(inputing.readline()) for i in range (a)]
+arr = trans(array)
+array = list(map((lambda x: min (x)), arr))
+answer = ' '.join(array)
+outputing.write(answer)
