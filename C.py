@@ -27,8 +27,9 @@
 '''
 inputting = open('input.txt', 'r')
 outputing = open('output.txt', 'w')
-N = int(inputting.readline().rstrip())
-arr = inputting.readline().rstrip()
+N = int(inputting.readline())
+array = inputting.readline()
+arr = array.split()
 arr = list(map((lambda x: int(x)), arr))
 ans = []
 for i in range(len(arr)):
