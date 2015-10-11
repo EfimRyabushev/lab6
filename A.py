@@ -18,12 +18,11 @@
 '''
 inputting = open('input.txt', 'r')
 outputing = open('output.txt', 'w')
-N = int(inputting.readline().rstrip())
-as = 0
-for i in range(N):
-  a = int(inputting.readline().rstrip())
-  if arr.count(a) != 0:
-    as = a
-  arr.append(a)
-outputting.write(as)
-outputting.close()
+n = int(inputing.readline())
+array = inputing.readline()
+arr = list (map ((lambda x: int (x)), array.split()))
+arr.sort()
+for i in range(len(arr) - 1):
+   if arr[i] == arr[i + 1]:
+      outputing.write(arr[i])
+      break
