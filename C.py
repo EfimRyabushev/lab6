@@ -25,21 +25,21 @@
   | -40 41 -42 -41 42 40 |       |
   +----------------------+-------+
 '''
-inputting = open('input.txt', 'r')
-outputing = open('output.txt', 'w')
-N = int(inputting.readline())
-array = inputting.readline()
-arr = array.split()
-arr = list(map((lambda x: int(x)), arr))
-ans = []
-for i in range(len(arr)):
-   if arr[i] < 0:
-      for b in range (i, len(arr)):
-          if arr[i] == (-1)*arr[b]:
-             ans.append(b - i)
-             break
-if (not arr):
-    outputting.write(0)
-else:
-   outputting.write(min (ans))
-outputting.close()
+minimum = 0
+input = open('input.txt', 'r')
+output = open('output.txt', 'w')
+N = input.readline()
+N = int(N.rstrip())
+line = input.readline()
+line = line.rstrip()
+line = list (map(lambda x: int(x), line.split()))
+for i in range(len(line)):
+    if line[i] > 0:
+        continue
+    else:
+        for j in range(i + 1, len(line)):
+            if -line[i] == line[j]:
+                if j - i < minimum or minimum == 0:
+                    minimum = j - i
+                break
+output.write(minimum)

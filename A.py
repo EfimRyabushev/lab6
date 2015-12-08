@@ -16,13 +16,16 @@
 | 8 3 5 4 5 1 |       |
 +-------------+-------+
 '''
-inputting = open('input.txt', 'r')
-outputing = open('output.txt', 'w')
-n = int(inputing.readline())
-array = inputing.readline()
-arr = list (map ((lambda x: int (x)), array.split()))
-arr.sort()
-for i in range(len(arr) - 1):
-   if arr[i] == arr[i + 1]:
-      outputing.write(arr[i])
-      break
+def search(arr):
+    for i in range(len(arr)):
+        if arr[i] == arr[i + 1]:
+            return arr[i]
+input = open('input.txt', 'r')
+output = open('output.txt', 'w')
+N = input.readline()
+N = int(N.rstrip())
+line = input.readline()
+line = line.rstrip()
+line = list (map(lambda x: int(x), line.split()))
+line = sorted(line)
+output.write(search(line))

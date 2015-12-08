@@ -42,33 +42,34 @@
 | 50 5 5 5 |       |
 +----------+-------+
 '''
-def removelid(elem, arr):
-  if arr[0] == elem:
-     return removelid(elem, arr[1:])
-  else:
-     return arr
-  
-inputting = open('input.txt', 'r')
-outputing = open('output.txt', 'w')
-N = int(inputting.readline())
-arr = inputting.readline()
-arr = arr.split()
-arr = list(map((lambda x: int(x)), arr))
-arr.reverse()
-arr = removelid(5, arr)
+pull = 0
 demanded = 0
-for i in arr:
-  if i == 5:
-     demanded -= 1
-  elif i == 10:
-     demanded += 1
-  elif i == 50:
-     demanded += 9
-  elif i == 100:
-     demanded += 19
+input = open('input.txt', 'r')
+output = open('output.txt', 'w')
+N = input.readline()
+N = int(N.rstrip())
+line = input.readline()
+line = line.rstrip()
+line = list (map(lambda x: int(x), line.split()))
+for i in range(N):
+    if line[i] == 5:
+        pull += 1
+    elif  line[i] == 10:
+        if pull == 0:
+            demanded += 1
+        else:
+            pull -= 1
 
-if demanded < 0:
-   demanded = 0
-
-outputting.write(demanded)
-
+    elif line[i] == 50:
+        if pull < 9:
+            demanded += 9 - pull
+            pull = 0
+        else:
+            pull -= 9
+    else:
+        if pull < 19:
+            demanded += 19 - pull
+            pull = 0
+        else:
+            pull -= 19
+output.write(demanded)
